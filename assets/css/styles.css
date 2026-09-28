@@ -1,0 +1,72 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    font-family: var(--font_principal);
+}
+
+:root{
+    /*valiables de color*/
+    --bg__header: #FAD1AE; /*Variable reservada en la memoria del navegador*/
+    --stroke:#CBA7DB;
+    --primary:#8279F6;
+    --font_principal:"Inter", sans-serif;
+    --white:#FFFFFF;
+    --black:#000000;
+
+    /*valiables SPACERS*/
+
+    --s8:8px;
+    --s16:16px;
+    --s24:24px;
+    --s32:32px;
+    --s40:40px;
+    --s48:48px;
+    --s56:56px;
+    --s64:64px;
+    --s72:72px;
+
+    /*valiables SEMANTICS*/
+
+    --nav-gap: var(--s16);
+    --btn-padding-x: var(--s40);
+    --btn-padding-y: var(--s16);
+   
+}
+.site-header{
+    background-color: var(--bg__header);
+    border-bottom: 4px solid var(--stroke);
+    padding: var(--s32);
+    display: flex;/*Convierte la cabecera en un contenedor flexible*/
+    justify-content: space-between;/*Alinea los elementos de la cabecera en horizontal y los separa con espacio entre ellos*/
+}
+.site-header h1{}
+.site-header .main-navigation{}
+.site-header .main-navigation .main-menu{
+    display:flex;
+    gap: var(--nav-gap);
+}
+.site-header .main-navigation .main-menu .menu-item{}
+.site-header .main-navigation .main-menu .menu-item a{
+    background-color: var(--white);
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    display: inline-block;/*Convierte el enlace en un elemento de bloque en línea para que se pueda aplicar el padding y el background-color*/
+    color: var(--black);
+    border-radius: var(--s56);
+}
+.site-header .main-navigation .main-menu .menu-item a:hover{
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.main-content{
+    width: 1200px;
+    margin: 0 auto;
+    padding: var(--s32);
+}
+.main-content-section{}
