@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
 /* Reset CSS */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing:border-box;
     list-style: none;
     text-decoration: none;
 }
@@ -15,9 +16,15 @@ body{
     --bg__header: #FAD1AE; /*Variable reservada en la memoria del navegador*/
     --stroke:#CBA7DB;
     --primary:#8279F6;
-    --font_principal:"Inter", sans-serif;
+    --font_principal: "Montserrat", sans-serif;
     --white:#FFFFFF;
     --black:#000000;
+
+    /*valiables de tipografia*/
+    --font-principal: "Montserrat", sans-serif;
+    --title_M: 39px;
+    --body_L:20px;
+    --title_SM: 25px;
 
     /*valiables SPACERS*/
 
@@ -38,14 +45,22 @@ body{
     --btn-padding-y: var(--s16);
    
 }
+
 .site-header{
     background-color: var(--bg__header);
     border-bottom: 4px solid var(--stroke);
     padding: var(--s32);
     display: flex;/*Convierte la cabecera en un contenedor flexible*/
     justify-content: space-between;/*Alinea los elementos de la cabecera en horizontal y los separa con espacio entre ellos*/
+    position:fixed; /*Hace que la cabecera se mantenga fija en la parte superior de la pantalla al hacer scroll*/
+    top: 0;
+    left: 0; 
+    width: 100%; /*Hace que la cabecera ocupe todo el ancho de la pantalla*/
+
 }
-.site-header h1{}
+.site-header h1{
+    color: var(--black);
+}
 .site-header .main-navigation{}
 .site-header .main-navigation .main-menu{
     display:flex;
@@ -65,8 +80,69 @@ body{
 }
 
 .main-content{
-    width: 1200px;
-    margin: 0 auto;
-    padding: var(--s32);
+    margin-top:117px; /*Agrega un margen superior para que el contenido no quede oculto detrás de la cabecera fija*/
+    background: url("../imagenes/fondo.png")repeat;
+    background-attachment: fixed;/*Hace que la imagen de fondo se mantenga fija mientras se hace scroll*/
 }
-.main-content-section{}
+.main-content section{
+     margin: 0 auto;
+     width: 1200px;
+     background-color: var(--white);
+     padding: var(--s32);
+     border-left: 1px solid var(--stroke);
+     border-right: 1px solid var(--stroke);
+}
+.main-content .course-description{
+    height: 683px;
+    background: var(--primary);
+    color: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--s24);
+}
+.main-content .course-description h2{
+    font-size: var(--title_M);
+}
+.main-content .course-description div{
+    width: 688px;
+    font-size: var(--body_L);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s16);
+
+}
+.students-grid{
+    display: flex;
+    flex-wrap: wrap;/*Permite que los elementos hijos se ajusten a la siguiente línea si no caben en la línea actual*/
+    gap: var(--s24);
+    justify-content: space-between;/*Alinea los elementos hijos en el centro del contenedor*/
+}
+
+.students-grid .student-card{
+    border: 1px solid var(--stroke);
+    border-radius: var(--s16);
+    overflow: hidden;/*Evita que el contenido del elemento se desborde fuera de sus límites*/
+}
+.students-grid .student-card a{
+    display: flex;/*Convierte el enlace en un contenedor flexible para poder alinear los elementos hijos en horizontal*/
+    width: 263px;
+    height: 110px;
+    padding: var(--s24);
+    color: var(--black);
+    transition: background 0.3s ease;/*Agrega una transición suave al cambiar el color de fondo del enlace*/
+    color: var(--black);
+    background: url("../imagenes/Vector.svg")no-repeat 213px center;/*Agrega una imagen de fondo al enlace y la posiciona a la derecha y centrada verticalmente*/
+    background-size: 24px 24px;/*Ajusta el tamaño de la imagen de fondo*/
+    display: flex;/*Convierte el enlace en un contenedor flexible para poder alinear los elementos hijos en horizontal*/
+    flex-direction: column;/*Alinea los elementos hijos en vertical*/
+    justify-content: center;
+}
+.students-grid .student-card a:hover{
+    background: var(--primary) url("../imagenes/Vector.svg")no-repeat 213px center;/*Agrega un color de fondo al enlace y mantiene la imagen de fondo*/
+}
+.students-grid .student-card h3{
+    font-size: var(--title_SM);
+    width: 179px;
+}
+
+
